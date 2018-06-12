@@ -24,7 +24,7 @@ c_grf <- list(label = "Generalized Random Forest",
                         num.trees = 2000,
                         min.node.size = param_grf$min.node.size,
                         alpha  = param_grf$alpha,
-                        honesty = FALSE,
+                        honesty = TRUE,
                         imbalance.penalty = param_grf$imbalance.penalty
                       )
                     } else {
@@ -36,7 +36,7 @@ c_grf <- list(label = "Generalized Random Forest",
                         num.trees = floor(runif(len,1500,2500)),
                         min.node.size = sample(c(1:4,param_grf$min.node.size), size = len, replace = TRUE),
                         alpha  = runif(len,param_grf$alpha*0.9,param_grf$alpha*1.1),
-                        honesty = sample( c(TRUE,FALSE), len, replace = TRUE),
+                        honesty = sample( c(TRUE), len, replace = TRUE),
                         imbalance.penalty = runif(len,param_grf$imbalance.penalty*0.9,param_grf$imbalance.penalty*1.1)
                       )
                     }
